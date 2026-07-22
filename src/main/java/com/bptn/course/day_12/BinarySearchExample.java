@@ -8,6 +8,8 @@ public class BinarySearchExample {
         int right = list.size() - 1;
 
         while (left <= right) {
+        	// size is 6
+        	// mid = 3 + (5- 3)/2= 4
             int mid = left + (right - left) / 2;
 
             if (list.get(mid) == target) {
