@@ -1,0 +1,223 @@
+:root{
+    --primary-color: #005f73;
+    --secondary-color: #ee9b00;
+    --bg-color: #f8f9fa;
+    --font-color: #333333;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw
+}
+ul{
+    list-style: none;
+    text-decoration: none;
+}
+li{
+    display: inline-block;
+    margin-right: 3vw;
+}
+a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+#hero{
+    padding: 3rem;
+    text-align: center;
+}
+h1{
+    font-size: 2.5rem;
+}
+img{
+    padding: 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+#conference_schedule{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    text-align: center;
+}
+table{
+    width: 40%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+td, th{
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem;
+}
+#rsvp_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+
+/* RSVP form field styling */
+#rsvp_form input[type="text"],
+#rsvp_form input[type="email"],
+#rsvp_form textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--font-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+#rsvp_form input[type="text"]:focus,
+#rsvp_form input[type="email"]:focus,
+#rsvp_form textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(238, 155, 0, 0.2);
+}
+
+#rsvp_form textarea {
+    resize: vertical;
+}
+
+/* Register Now button */
+#rsvp_form button[type="submit"],
+#rsvp_form input[type="submit"] {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#rsvp_form button[type="submit"]:hover,
+#rsvp_form input[type="submit"]:hover {
+    background-color: #cf8700;
+    cursor: pointer;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+/* Featured Speakers section */
+#featured_speakers {
+    padding: 3rem;
+    text-align: center;
+}
+
+#featured_speakers h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+#featured_speakers ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+#featured_speakers li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 220px;
+    padding: 1.5rem 1rem;
+    background-color: #ffffff;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    color: var(--font-color);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-right: 0; /* overrides your global li rule margin-right: 3vw */
+}
+
+#featured_speakers li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.479);
+}
+
+/* Conference Schedule table styling */
+thead th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        margin-top: 1rem;
+    }
+
+    header nav li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    #rsvp_form {
+        padding: 1.5rem;
+    }
+
+    table {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+footer a {
+    color: var(--secondary-color);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
