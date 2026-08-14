@@ -1,0 +1,46 @@
+section {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+p {
+  width: 80%;
+}
+
+img {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  section {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+  }
+
+  p {
+    width: 40%;
+  }
+
+  img {
+    visibility: hidden;
+    /* opacity: 0; */
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  section {
+    flex-direction: row-reverse;
+  }
+  p {
+    width: 30%;
+  }
+  img {
+    display: none;
+  }
+}

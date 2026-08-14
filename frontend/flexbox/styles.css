@@ -1,0 +1,14 @@
+.nav-bar {
+  display: flex;
+}
+
+#notes_section,
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.note {
+  width: 200px;
+}
