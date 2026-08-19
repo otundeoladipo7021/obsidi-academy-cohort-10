@@ -1,0 +1,135 @@
+/* The Brand Guidelines Central Hub */
+:root {
+  /* #RRGGBB */
+  /* Hexadecimal - 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F */
+  /* Black - #000000 */
+  /* White - #FFFFFF */
+  --primary-color: #005f73; /* The brand's main color */
+  --secondary-color: #ee9b00; /* The accent color */
+  --bg-color: #f8f9fa; /* Standard background */
+  --font-color: #333333; /* Text Color */
+  --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  align-items: center;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+}
+
+header ul li {
+  margin: 2vw;
+}
+
+header a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#hero {
+  padding: 3rem;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 32px;
+  margin: 10px;
+}
+
+#hero img {
+  max-width: 100%;
+  margin: 10px;
+}
+
+#hero h2 {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+#conference_schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#conference_schedule table {
+  border-collapse: collapse;
+}
+
+#conference_schedule table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#conference_schedule table td,
+#conference_schedule table th {
+  padding: 1vw;
+}
+
+#featured_speakers {
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rsvp_form {
+  width: 100vw;
+  padding: 10px;
+}
+
+#rsvp_form input,
+#rsvp_form textarea {
+  width: 30%;
+  margin: 10px;
+}
+
+/* Give it your secondary brand color, white text, no border, a subtle border-radius,
+and change the cursor to a pointer on hover (cursor: pointer;). */
+
+#rsvp_form input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+#rsvp_form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+}
+
+footer p a {
+  color: white;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+}
