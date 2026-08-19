@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Magic Card</title>
+   <style>
+      /* CSS code for the magic card */
+      @property --rotate {
+         syntax: "<angle>";
+         initial-value: 132deg;
+         inherits: false;
+      }
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+      :root {
+        --card-height: 65vh;
+        --card-width: calc(var(--card-height) / 1.5);
+      }
+      body{
+        min-height: 100vh;
+        background-color: #212534;
+        box-sizing: border-box;
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .card{
+        background-color: #191c29;
+         color: #191c29;
+        width: var(--card-width);
+        height: var(--card-height);
+        padding: 3px;
+        position: relative;
+        border-radius: 6px;
+        display:flex;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5em;
+      }
+      .card:hover{
+        color: rgb(88 199 250 / 100%);
+        transition: color 1s;
+      }
+      .card:hover::before,
+      .card:hover::after{
+        animation: none;
+        opacity: 0;
+      }
+
+      .card::before{
+        content: "";
+        width: 104%;
+        height: 102%;
+        top: -1%;
+        left:-2%;
+        border-radius: 8px;
+        background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+        position: absolute;
+        z-index: -1;
+        animation: spin 2.5s linear infinite;
+      }
+
+      .card::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        position: absolute;
+  z-index: -1;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+
+      }
+      @keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+      
+
+   </style>
+</head>
+<body>
+   <div class="card">Magic Card</div>
+</body>
+</html>
