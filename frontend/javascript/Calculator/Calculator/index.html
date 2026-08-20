@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="flex justify-center items-center h-screen bg-purple-500">
+    <div class="bg-gray-100 p-4 rounded-lg shadow-md w-1/4">
+      <div class="flex flex-col items-end mb-4">
+  <p id="history" class="text-sm text-gray-400 h-5"></p>
+  <p id="result" class="text-2xl"></p>
+</div>
+
+      <div class="grid grid-cols-4 gap-2">
+        <button class="btn" onclick="appendNumber('7')">7</button>
+        <button class="btn" onclick="appendNumber('8')">8</button>
+        <button class="btn" onclick="appendNumber('9')">9</button>
+        <button class="btn" onclick="operator('+')">+</button>
+        <button class="btn" onclick="appendNumber('4')">4</button>
+        <button class="btn" onclick="appendNumber('5')">5</button>
+        <button class="btn" onclick="appendNumber('6')">6</button>
+        <button class="btn" onclick="operator('-')">-</button>
+        <button class="btn" onclick="appendNumber('1')">1</button>
+        <button class="btn" onclick="appendNumber('2')">2</button>
+        <button class="btn" onclick="appendNumber('3')">3</button>
+        <button class="btn" onclick="operator('*')">*</button>
+        <button class="btn" onclick="appendNumber('0')">0</button>
+        <button class="btn" onclick="appendNumber('.')">.</button>
+        <button class="btn" onclick="clearAll()">C</button>
+        <button class="btn" onclick="operator('/')">/</button>
+        <button class="btn col-span-2" onclick="calculate()">=</button>
+      </div>
+    </div>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>
