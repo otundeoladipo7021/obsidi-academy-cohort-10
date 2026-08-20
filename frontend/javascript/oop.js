@@ -16,6 +16,10 @@ function displayData() {
   console.log(myCamp); // prints the entire object
   // Or by accessing individual elements using dot notation:
   console.log(myCamp.name); // prints "Academy"
+  // Works similarly in JS and TS
 }
 
-displayData();
+setTimeout(() => {
+  displayData();
+}, 3000);
+// displayData();
