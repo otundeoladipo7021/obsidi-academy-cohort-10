@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "./store";
 import { fetchUserData, type User } from "./usersSlice";
+import TodosPanel from "./TodosPanel";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     (state: RootState) => state.users,
   );
   const [favoriteUserIds, setFavoriteUserIds] = useState<number[]>([]);
+  const [activeTab, setActiveTab] = useState<"users" | "todos">("users");
 
   useEffect(() => {
     if (status === "idle") {
@@ -74,26 +76,50 @@ function App() {
           A small Redux Toolkit flow for loading people from JSONPlaceholder.
         </p>
       </header>
-      {status === "loading" && <p className="state-message">Loading...</p>}
-      {status === "failed" && <p className="state-message error-message">{error}</p>}
-      {status === "succeeded" && (
-        <section className="panels-grid" aria-live="polite">
-          <article className="users-panel">
-            <div className="panel-heading">
-              <h2>People</h2>
-              <span className="count">{otherUsers.length} users</span>
-            </div>
-            {renderUserRows(otherUsers)}
-          </article>
-          <article className="users-panel favorites-panel">
-            <div className="panel-heading">
-              <h2>Favourite Users</h2>
-              <span className="count">{favoriteUsers.length} users</span>
-            </div>
-            {renderUserRows(favoriteUsers)}
-          </article>
-        </section>
+
+      <div className="tab-switcher">
+        <button
+          type="button"
+          className={activeTab === "users" ? "tab active" : "tab"}
+          onClick={() => setActiveTab("users")}
+        >
+          Users
+        </button>
+        <button
+          type="button"
+          className={activeTab === "todos" ? "tab active" : "tab"}
+          onClick={() => setActiveTab("todos")}
+        >
+          Todos
+        </button>
+      </div>
+
+      {activeTab === "users" && (
+        <>
+          {status === "loading" && <p className="state-message">Loading...</p>}
+          {status === "failed" && <p className="state-message error-message">{error}</p>}
+          {status === "succeeded" && (
+            <section className="panels-grid" aria-live="polite">
+              <article className="users-panel">
+                <div className="panel-heading">
+                  <h2>People</h2>
+                  <span className="count">{otherUsers.length} users</span>
+                </div>
+                {renderUserRows(otherUsers)}
+              </article>
+              <article className="users-panel favorites-panel">
+                <div className="panel-heading">
+                  <h2>Favourite Users</h2>
+                  <span className="count">{favoriteUsers.length} users</span>
+                </div>
+                {renderUserRows(favoriteUsers)}
+              </article>
+            </section>
+          )}
+        </>
       )}
+
+      {activeTab === "todos" && <TodosPanel />}
     </main>
   );
 }
