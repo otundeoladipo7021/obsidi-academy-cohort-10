@@ -23,7 +23,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           {/* This is where our individual <Route> components will go */}
           <Route path="/" element={<App />} />
-          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </Provider>
