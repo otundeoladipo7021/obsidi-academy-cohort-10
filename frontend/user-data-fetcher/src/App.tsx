@@ -27,7 +27,9 @@ function App() {
     );
   };
 
-  const favoriteUsers = data.filter((user) => favoriteUserIds.includes(user.id));
+  const favoriteUsers = data.filter((user) =>
+    favoriteUserIds.includes(user.id),
+  );
   const otherUsers = data.filter((user) => !favoriteUserIds.includes(user.id));
 
   const renderUserRows = (users: User[]) => {
@@ -70,34 +72,37 @@ function App() {
   return (
     <main className="app-shell">
       <header className="app-header">
+        <a href="/profile">
+          <button>Visit Profile</button>
+        </a>
         <p className="eyebrow">Directory / live endpoint</p>
         <h1>User directory</h1>
         <p className="intro">
           A small Redux Toolkit flow for loading people from JSONPlaceholder.
         </p>
       </header>
-
-      <div className="tab-switcher">
+      <nav aria-label="Directory sections">
         <button
           type="button"
-          className={activeTab === "users" ? "tab active" : "tab"}
+          aria-pressed={activeTab === "users"}
           onClick={() => setActiveTab("users")}
         >
           Users
         </button>
         <button
           type="button"
-          className={activeTab === "todos" ? "tab active" : "tab"}
+          aria-pressed={activeTab === "todos"}
           onClick={() => setActiveTab("todos")}
         >
           Todos
         </button>
-      </div>
-
+      </nav>
       {activeTab === "users" && (
         <>
           {status === "loading" && <p className="state-message">Loading...</p>}
-          {status === "failed" && <p className="state-message error-message">{error}</p>}
+          {status === "failed" && (
+            <p className="state-message error-message">{error}</p>
+          )}
           {status === "succeeded" && (
             <section className="panels-grid" aria-live="polite">
               <article className="users-panel">
@@ -118,7 +123,6 @@ function App() {
           )}
         </>
       )}
-
       {activeTab === "todos" && <TodosPanel />}
     </main>
   );
